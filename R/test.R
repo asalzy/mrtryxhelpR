@@ -107,4 +107,3 @@ identify_outliars = function(dat, outliers="RadialMR", outlier_correction="none"
   return(output)
 }
 
-
