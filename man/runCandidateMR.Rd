@@ -9,7 +9,8 @@ runCandidateMR(
   candidate_outcome_associations,
   candidate_exposure_associations,
   mr_method = "mr_ivw",
-  include_outliars = FALSE
+  include_outliers = FALSE,
+  use_proxies = FALSE
 )
 }
 \arguments{
@@ -21,7 +22,9 @@ runCandidateMR(
 
 \item{mr_method}{default is IVW}
 
-\item{include_outliars}{}
+\item{include_outliers}{When performing MR of candidate traits against exposures or outcomes, whether to include the original outlier SNP. Default is FALSE.}
+
+\item{use_proxies}{Whether to use proxies when looking up associations. FALSE by default for speed.}
 }
 \value{
 List

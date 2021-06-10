@@ -1,5 +1,5 @@
 Package: mrtryxhelpR
-Title: What the Package Does (One Line, Title Case)
+Title: Helper functions for the tryx package
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Antoine",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "antoine.salzmann.14@ucl.ac.uk",
            comment = c(ORCID = "https://orcid.org/0000-0001-7877-9876"))
-Description: What the package does (one paragraph).
+Description: MR Tryx (TReasure Your eXposures) provides a comprehensive framework to identify and adjust for pleiotropic variants in a summary-level data context. This has been implemented in the tryx package. However, as the tryx package currently stands, it is complicated to include associations not currently held in the MR-Base database (e.g associations derived from individual-level data). This package simplifies the process of importing and including exposure and outcome variables not currently held in the MR-Base platform so they can be used within an MR-Tryx framework. 
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
@@ -17,6 +17,7 @@ RoxygenNote: 7.1.1
 Imports: 
     dplyr,
     magrittr,
+    purrr,
     RadialMR,
     readr
 Depends: 
