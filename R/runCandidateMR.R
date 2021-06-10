@@ -28,6 +28,19 @@ runCandidateMR = function(dat,candidate_outcome_associations,
   #their own associations for the Candidate-SNP outcome associations
 
   output = dat
+
+  #Making sure that the phenotype ID is the same for the exposure and outcomes when the new
+  #associations are imported
+  if(unique(candidate_outcome_associations$id.outcome) != unique(output$dat$id.outcome)) {
+    candidate_outcome_associations$id.outcome = unique(output$dat$id.outcome)
+  }
+
+  if(unique(candidate_exposure_associations$id.outcome) != unique(output$dat$id.exposure)) {
+    candidate_exposure_associations$id.outcome = unique(output$dat$id.exposure)
+  }
+
+
+
   message("Looking up candidate trait instruments for ", output$dat$outcome[1])
   output$candidate_outcome <- candidate_outcome_associations
   if(is.null(output$candidate_outcome))
