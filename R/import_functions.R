@@ -59,7 +59,7 @@ importPlink2 = function(association_file, variable_type, eaf_file, phenotype) {
 
   }
 
-  formatted_data = TwoSampleMR::format_data(dat = assoc_file,
-                                            type = variable_type)
+  formatted_data = suppressMessages(TwoSampleMR::format_data(dat = assoc_file,
+                                            type = variable_type))
   return(formatted_data)
 }
