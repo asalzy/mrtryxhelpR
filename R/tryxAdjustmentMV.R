@@ -166,8 +166,8 @@ tryxAdjustmentMV <- function(tryxscan, lasso=TRUE, id_remove=NULL, proxies=FALSE
     unclumped_snp_list = c(unique(candidates_snps, main_exposure_snps))
 
     #This is the SNP - candidate trait associations
-    mvexp_candidate = TwoSampleMR::extract_outcome_data(snps = unclumped_snp_list,
-                                           outcomes = unique(temp$id.outcome)) %>%
+    mvexp_candidate = suppressMessages(TwoSampleMR::extract_outcome_data(snps = unclumped_snp_list,
+                                           outcomes = unique(temp$id.outcome))) %>%
       TwoSampleMR::convert_outcome_to_exposure()
 
     #This is the SNP - main exposure associations
@@ -234,7 +234,7 @@ tryxAdjustmentMV <- function(tryxscan, lasso=TRUE, id_remove=NULL, proxies=FALSE
     unlink("./MultivariateMR", recursive = TRUE)
     if(lasso & length(candidates) > 1)
     {
-      message("Performing shrinkage")
+      message("Performing shrinkage for candidate traits of following outlier: ", snplist[i])
       b <- glmnet::cv.glmnet(x=mvdat$exposure_beta, y=mvdat$outcome_beta, weight=1/mvdat$outcome_se^2, intercept=0)
       c <- coef(b, s = "lambda.min")
       keeplist <- unique(c(rownames(c)[!c[,1] == 0], tryxscan$dat$id.exposure[1]))
