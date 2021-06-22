@@ -166,8 +166,8 @@ tryxAdjustmentMV <- function(tryxscan, lasso=TRUE, id_remove=NULL, proxies=FALSE
     unclumped_snp_list = c(unique(candidates_snps, main_exposure_snps))
 
     #This is the SNP - candidate trait associations
-    mvexp_candidate = TwoSampleMR::extract_outcome_data(snps = unclumped_snp_list,
-                                           outcomes = unique(temp$id.outcome)) %>%
+    mvexp_candidate = suppressMessages(TwoSampleMR::extract_outcome_data(snps = unclumped_snp_list,
+                                           outcomes = unique(temp$id.outcome))) %>%
       TwoSampleMR::convert_outcome_to_exposure()
 
     #This is the SNP - main exposure associations
