@@ -20,6 +20,8 @@ Imports:
     magrittr,
     purrr,
     RadialMR,
-    readr
+    readr,
+    readxl,
+    tryx
 Depends: 
     TwoSampleMR
